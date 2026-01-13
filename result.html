@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeworkHub - Results</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #6C63FF;
+            --secondary: #FF6584;
+            --accent: #36D1DC;
+            --success: #4CAF50;
+            --warning: #FF9800;
+            --light: #F8F9FA;
+            --dark: #2D3436;
+            --gradient: linear-gradient(135deg, var(--primary), var(--accent));
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            color: var(--dark);
+            min-height: 100vh;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(108, 99, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 101, 132, 0.1) 0%, transparent 20%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: white;
+            border-radius: 20px;
+            padding: 20px 40px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .logo-text h1 {
+            font-size: 28px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            background: transparent;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .nav-btn i {
+            font-size: 18px;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .nav-btn.active {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+        }
+
+        /* Page Title */
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-title h2 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-title p {
+            font-size: 18px;
+            color: #6c757d;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Stats Overview */
+        .stats-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin: 0 auto 20px;
+            color: white;
+        }
+
+        .stat-card:nth-child(1) .stat-icon {
+            background: linear-gradient(135deg, var(--primary), #8A84FF);
+        }
+
+        .stat-card:nth-child(2) .stat-icon {
+            background: linear-gradient(135deg, var(--accent), #5CE1E6);
+        }
+
+        .stat-card:nth-child(3) .stat-icon {
+            background: linear-gradient(135deg, var(--secondary), #FF7B95);
+        }
+
+        .stat-card:nth-child(4) .stat-icon {
+            background: linear-gradient(135deg, var(--success), #6BCF6F);
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #6c757d;
+            font-size: 16px;
+        }
+
+        /* Progress Chart */
+        .progress-chart {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .progress-chart h3 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+
+        .subject-progress {
+            margin-bottom: 30px;
+        }
+
+        .subject-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .subject-name {
+            width: 150px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .progress-container {
+            flex: 1;
+            height: 20px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 20px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        .progress-percent {
+            width: 60px;
+            text-align: right;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* Recent Results */
+        .recent-results {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .recent-results h3 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .results-table th {
+            text-align: left;
+            padding: 15px;
+            border-bottom: 2px solid #e9ecef;
+            color: #6c757d;
+            font-weight: 600;
+        }
+
+        .results-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .result-row:hover {
+            background: #f8f9fa;
+        }
+
+        .score-cell {
+            font-weight: 600;
+        }
+
+        .score-cell.high {
+            color: var(--success);
+        }
+
+        .score-cell.medium {
+            color: var(--warning);
+        }
+
+        .score-cell.low {
+            color: var(--secondary);
+        }
+
+        .action-btn {
+            padding: 8px 15px;
+            background: #f8f9fa;
+            border: none;
+            border-radius: 8px;
+            color: var(--dark);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .action-btn:hover {
+            background: var(--gradient);
+            color: white;
+        }
+
+        /* Page Info */
+        .page-info {
+            background: white;
+            border-radius: 20px;
+            padding: 25px 40px;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .page-number {
+            font-size: 18px;
+            color: var(--primary);
+            font-weight: 600;
+            background: rgba(108, 99, 255, 0.1);
+            padding: 8px 20px;
+            border-radius: 50px;
+        }
+
+        .page-description {
+            max-width: 600px;
+            color: #6c757d;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .page-title h2 {
+                font-size: 32px;
+            }
+
+            .stats-overview {
+                grid-template-columns: 1fr;
+            }
+
+            .subject-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .subject-name {
+                width: 100%;
+            }
+
+            .progress-container {
+                width: 100%;
+                margin: 0;
+            }
+
+            .progress-percent {
+                width: 100%;
+                text-align: left;
+            }
+
+            .results-table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .page-info {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header with Navigation -->
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>HomeworkHub</h1>
+                    <p>Interactive Assignment System</p>
+                </div>
+            </div>
+
+            <nav>
+                <a href="index.html" class="nav-btn">
+                    <i class="fas fa-home"></i> HOME
+                </a>
+                <a href="topic.html" class="nav-btn">
+                    <i class="fas fa-book-open"></i> TOPIC
+                </a>
+                <a href="test.html" class="nav-btn">
+                    <i class="fas fa-pencil-alt"></i> TEST
+                </a>
+                <a href="result.html" class="nav-btn active">
+                    <i class="fas fa-chart-line"></i> RESULT
+                </a>
+            </nav>
+        </header>
+
+        <!-- Page Title -->
+        <div class="page-title">
+            <h2>Results & Progress</h2>
+            <p>Track your learning journey with detailed analytics and performance reports.</p>
+        </div>
+
+        <!-- Stats Overview -->
+        <div class="stats-overview">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="stat-value">85%</div>
+                <div class="stat-label">Overall Score</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-value">24</div>
+                <div class="stat-label">Completed Tests</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-value">42h</div>
+                <div class="stat-label">Total Study Time</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="stat-value">+18%</div>
+                <div class="stat-label">Improvement</div>
+            </div>
+        </div>
+
+        <!-- Progress Chart -->
+        <div class="progress-chart">
+            <h3>Subject Progress</h3>
+
+            <div class="subject-progress">
+                <div class="subject-row">
+                    <div class="subject-name">Mathematics</div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 85%; background: var(--primary);"></div>
+                    </div>
+                    <div class="progress-percent">85%</div>
+                </div>
+
+                <div class="subject-row">
+                    <div class="subject-name">Science</div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 72%; background: var(--accent);"></div>
+                    </div>
+                    <div class="progress-percent">72%</div>
+                </div>
+
+                <div class="subject-row">
+                    <div class="subject-name">Language Arts</div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 90%; background: var(--success);"></div>
+                    </div>
+                    <div class="progress-percent">90%</div>
+                </div>
+
+                <div class="subject-row">
+                    <div class="subject-name">Social Studies</div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 65%; background: var(--warning);"></div>
+                    </div>
+                    <div class="progress-percent">65%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Results -->
+        <div class="recent-results">
+            <h3>Recent Test Results</h3>
+
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Test Name</th>
+                        <th>Date</th>
+                        <th>Score</th>
+                        <th>Time Spent</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="results-container">
+                    <!-- Results will be loaded here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Page Info -->
+        <div class="page-info">
+            <div class="page-number">RESULT PAGE</div>
+            <div class="page-description">
+                <p>This is the Result Page, showing test results, progress analytics, and performance statistics. Users
+                    can track their improvement over time.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Results data
+        const recentResults = [
+            {
+                id: 1,
+                testName: "Algebra Final Exam",
+                date: "2023-10-15",
+                score: 88,
+                timeSpent: "55 min",
+                difficulty: "Hard"
+            },
+            {
+                id: 2,
+                testName: "Biology Chapter Quiz",
+                date: "2023-10-12",
+                score: 92,
+                timeSpent: "28 min",
+                difficulty: "Medium"
+            },
+            {
+                id: 3,
+                testName: "Grammar Practice Test",
+                date: "2023-10-10",
+                score: 78,
+                timeSpent: "40 min",
+                difficulty: "Easy"
+            },
+            {
+                id: 4,
+                testName: "History Midterm",
+                date: "2023-10-05",
+                score: 85,
+                timeSpent: "70 min",
+                difficulty: "Hard"
+            },
+            {
+                id: 5,
+                testName: "Geometry Quick Quiz",
+                date: "2023-10-01",
+                score: 95,
+                timeSpent: "18 min",
+                difficulty: "Easy"
+            }
+        ];
+
+        // Function to render results
+        function renderResults() {
+            const container = document.getElementById('results-container');
+
+            container.innerHTML = recentResults.map(result => {
+                let scoreClass = 'score-cell ';
+                if (result.score >= 90) scoreClass += 'high';
+                else if (result.score >= 75) scoreClass += 'medium';
+                else scoreClass += 'low';
+
+                return `
+                    <tr class="result-row">
+                        <td><strong>${result.testName}</strong><br><small>${result.difficulty}</small></td>
+                        <td>${result.date}</td>
+                        <td class="${scoreClass}">${result.score}%</td>
+                        <td>${result.timeSpent}</td>
+                        <td>
+                            <button class="action-btn" onclick="viewResultDetails(${result.id})">
+                                <i class="fas fa-eye"></i> View
+                            </button>
+                            <button class="action-btn" onclick="retakeTest(${result.id})">
+                                <i class="fas fa-redo"></i> Retake
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // Navigation highlighting
+        document.addEventListener('DOMContentLoaded', function () {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-btn');
+
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (linkPage === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+
+            // Initialize results
+            renderResults();
+
+            // Animate progress bars
+            setTimeout(() => {
+                document.querySelectorAll('.progress-bar').forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                });
+            }, 500);
+        });
+
+        // Result functions
+        function viewResultDetails(resultId) {
+            const result = recentResults.find(r => r.id === resultId);
+            alert(`Result Details:\n\nTest: ${result.testName}\nDate: ${result.date}\nScore: ${result.score}%\nTime Spent: ${result.timeSpent}\nDifficulty: ${result.difficulty}\n\nThis would show detailed answer analysis in a real application.`);
+        }
+
+        function retakeTest(resultId) {
+            const result = recentResults.find(r => r.id === resultId);
+            alert(`Retaking test: ${result.testName}\n\nThis would restart the test in a real application.`);
+        }
+    </script>
+</body>
+
+</html>

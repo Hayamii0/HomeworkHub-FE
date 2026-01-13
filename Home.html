@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeworkHub - Interactive Assignment System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header with Navigation -->
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>HomeworkHub</h1>
+                    <p>Interactive Assignment System</p>
+                </div>
+            </div>
+
+            <nav>
+                <a href="index.html" class="nav-btn active">
+                    <i class="fas fa-home"></i> HOME
+                </a>
+                <a href="topic.html" class="nav-btn">
+                    <i class="fas fa-book-open"></i> TOPIC
+                </a>
+                <a href="test.html" class="nav-btn">
+                    <i class="fas fa-pencil-alt"></i> TEST
+                </a>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <h2>Welcome to Interactive Learning</h2>
+                <p>HomeworkHub transforms traditional assignments into engaging interactive experiences. Explore topics,
+                    take tests, and track your progress all in one platform.</p>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Topics Available</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">85%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4.8</div>
+                        <div class="stat-label">User Rating</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Image Gallery -->
+            <div class="image-gallery">
+                <div class="image-card" data-image="1">
+                    <img src="https://thumbs.dreamstime.com/b/sabah-malaysia-april-classroom-malaysian-primary-school-children-kota-kinabalu-having-english-language-lesson-using-107488957.jpg"
+                        alt="Interactive Learning">
+                    <div class="image-overlay">
+                        <h4>Interactive Learning</h4>
+                        <p>Engaging educational activities</p>
+                    </div>
+                </div>
+
+                <div class="image-card" data-image="2">
+                    <img src="https://ajar.com.my/wp-content/uploads/2018/11/edud_jk_pg6g_4cols_1805-768x514.jpg"
+                        alt="Study Group">
+                    <div class="image-overlay">
+                        <h4>Collaborative Study</h4>
+                        <p>Work together with classmates</p>
+                    </div>
+                </div>
+
+                <!-- Modern Classroom - Fixed Image -->
+                <div class="image-card large" data-image="3">
+                    <img src="https://iluminasi.com/img/upload/budak-sekolah-gembira-dapat-keputusan-cemerlang.jpg"
+                        alt="Modern Classroom"
+                        onerror="this.style.display='none'; this.parentElement.innerHTML = fallbackContent('Modern Classroom', 'Advanced tools for better education');">
+                    <div class="image-overlay">
+                        <h4>Modern Classroom</h4>
+                        <p>Advanced tools for better education</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subject Overview -->
+            <section class="subject-overview">
+                <h3>General Subject Overview</h3>
+                <div class="subject-description">
+                    <p>HomeworkHub offers a comprehensive learning platform covering multiple subjects including
+                        Mathematics, Science, Language Arts, and Social Studies. Our interactive approach combines
+                        traditional learning methods with modern technology to create an engaging educational
+                        experience.</p>
+                    <p>Each topic is designed with interactive elements, practice tests, and progress tracking to ensure
+                        students not only learn but retain knowledge effectively. The system adapts to individual
+                        learning styles and provides personalized feedback for continuous improvement.</p>
+                </div>
+
+                <div class="subject-features">
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>Interactive Lessons</h4>
+                        <p>Engaging multimedia content that makes learning fun and effective.</p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h4>Progress Tracking</h4>
+                        <p>Monitor your improvement with detailed analytics and reports.</p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h4>Practice Tests</h4>
+                        <p>Test your knowledge with customizable quizzes and exams.</p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h4>Achievement System</h4>
+                        <p>Earn badges and rewards for completing lessons and challenges.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Page Info -->
+        <div class="page-info">
+            <div class="page-number">PAGE NUMBER: 5</div>
+            <div class="page-description">
+                <p>This is the Home Page, showing the main subject, pictures, and basic introduction. Users can navigate
+                    to Topic, Test, or Result using the menu. Clicking pictures shows more detailed information.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Image Details -->
+    <div class="modal" id="image-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <h2 id="modal-title">Image Details</h2>
+            <img id="modal-image" class="modal-image" src="" alt="Modal Image">
+            <div id="modal-body">
+                <p>Detailed information about the selected image will appear here.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
