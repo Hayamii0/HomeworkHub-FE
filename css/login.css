@@ -1,0 +1,366 @@
+
+
+/* Use the same variable names as your login.html */
+:root {
+    --primary: #6C63FF;
+    --secondary: #FF6584;
+    --accent: #36D1DC;
+    --light: #F8F9FA;
+    --dark: #343A40;
+    --success: #4CAF50;
+    --warning: #FF9800;
+    --gradient: linear-gradient(135deg, var(--primary), var(--accent), var(--secondary));
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Login Page Body Styles - Matches your existing body styles */
+body {
+    background-color: #f0f2f5;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%236C63FF" stroke-width="0.5" opacity="0.2"/></svg>');
+}
+
+/* Container Styles - Keep your existing class names */
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    height: 1000px;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.right-section {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+}
+
+/* Form Container */
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-title {
+    font-size: 32px;
+    color: var(--dark);
+    margin-bottom: 10px;
+}
+
+.form-subtitle {
+    color: #6c757d;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+/* Form Toggle */
+.form-toggle {
+    display: flex;
+    background-color: #f1f3f5;
+    border-radius: 50px;
+    margin-bottom: 30px;
+    padding: 5px;
+    position: relative;
+}
+
+.toggle-btn {
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    z-index: 1;
+    transition: var(--transition);
+}
+
+.toggle-bg {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: calc(50% - 5px);
+    height: calc(100% - 10px);
+    background: var(--gradient);
+    border-radius: 50px;
+    transition: var(--transition);
+}
+
+.toggle-bg.register {
+    transform: translateX(100%);
+}
+
+/* Form Styles */
+.form {
+    display: none;
+}
+
+.form.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Input Groups */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    font-size: 18px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 16px 16px 16px 50px;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.input-group input:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+}
+
+/* Checkbox */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.checkbox-container input {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+}
+
+.checkbox-container label {
+    color: #6c757d;
+    font-size: 14px;
+}
+
+/* Button - Keep your existing .btn class */
+.btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    background: var(--gradient);
+    color: white;
+    margin-bottom: 20px;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+}
+
+/* Divider */
+.divider {
+    text-align: center;
+    margin: 25px 0;
+    position: relative;
+    color: #6c757d;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 45%;
+    height: 1px;
+    background-color: #e9ecef;
+}
+
+.divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 45%;
+    height: 1px;
+    background-color: #e9ecef;
+}
+
+/* Social Login */
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.social-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.social-btn:hover {
+    transform: translateY(-5px);
+}
+
+.facebook {
+    background-color: #3b5998;
+}
+
+.twitter {
+    background-color: #1da1f2;
+}
+
+.google {
+    background-color: #dd4b39;
+}
+
+/* Form Footer */
+.form-footer {
+    text-align: center;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.form-footer a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Credential Info */
+.credential-info {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #6c757d;
+    border-left: 4px solid var(--primary);
+}
+
+.credential-info h4 {
+    color: var(--primary);
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.credential-info p {
+    margin-bottom: 5px;
+}
+
+/* Error States */
+.input-error {
+    border-color: var(--secondary) !important;
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Loading State */
+.btn-loading {
+    position: relative;
+    color: transparent !important;
+}
+
+.btn-loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin-left: -10px;
+    margin-top: -10px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive Design for Login Page */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .right-section {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .right-section {
+        padding: 20px;
+    }
+
+    .form-title {
+        font-size: 26px;
+    }
+    
+    .social-login {
+        gap: 10px;
+    }
+    
+    .social-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+}
